@@ -46,11 +46,11 @@ init_function() {
     $GENESIS_BINARY init $MONIKER_NAME --chain-id $CHAIN_ID >/dev/null 2>&1
   # Replace genesis.json with backed up file
     if [ "$CHAIN_ID" = "axelar-dojo-1" ]; then
-    cp -f /tmp/mainnet/genesis.json /root/.axelar/config/genesis.json &&
+    cp -f /tmp/mainnet/genesis.json /root/.axelar/config/genesis.json
     cp -f /tmp/mainnet/addrbook.json /root/.axelar/config/addrbook.json
     else
-    cp -f /tmp/testnet/genesis.json /root/.axelar/config/genesis.json &&
-    cp -f /tmp/testnet/addrbook.json /root/.axelar/config/addrbook.json
+    cp -f /tmp/testnet/genesis.json /root/.axelar/config/genesis.json
+#    cp -f /tmp/testnet/addrbook.json /root/.axelar/config/addrbook.json
     fi
   # Set minimum gas price
   sed -i -e "s|^minimum-gas-prices *=.*|minimum-gas-prices = \"0.007uaxl\"|" $HOME/.axelar/config/app.toml

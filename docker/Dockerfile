@@ -43,8 +43,8 @@ WORKDIR "/root"
 RUN mkdir -p /tmp/mainnet && mkdir -p /tmp/testnet && \
     wget -O /tmp/mainnet/genesis.json https://snapshots.kjnodes.com/axelar/genesis.json && \
     wget -O /tmp/mainnet/addrbook.json https://snapshots.kjnodes.com/axelar/addrbook.json && \
-    wget -O /tmp/testnet/genesis.json https://snapshots.kjnodes.com/axelar-testnet/genesis.json&& \
-    wget -O /tmp/testnet/addrbook.json https://snapshots.kjnodes.com/axelar-testnet/addrbook.json
+    wget -O /tmp/testnet/genesis.json https://github.com/axelarnetwork/axelarate-community/blob/main/resources/testnet/genesis.json
+#    wget -O /tmp/testnet/addrbook.json https://snapshots.kjnodes.com/axelar-testnet/addrbook.json
 
 ENTRYPOINT ["/opt/entrypoint.sh"]
 CMD ["cosmovisor --help"]
