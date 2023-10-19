@@ -29,7 +29,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN mkdir -p "/root/.axelar/config" && mkdir -p "/root/.axelar/cosmovisor/genesis/bin/"
 COPY --from=builder /go/bin/* /go/bin/
-COPY --from=builder /bin/axelard /root/.axelar/cosmovisor/genesis/bin/
+COPY --from=builder /tmp/axelar-core/axelard /root/.axelar/cosmovisor/genesis/bin/
 #COPY --from=builder /tmp/conf_repo/default_lavad_config_files/* /root/.axelar/config/
 #COPY --from=builder /tmp/conf_repo/genesis_json/genesis.json /root/.axelar/config/genesis.json
 COPY entrypoint.sh /opt/entrypoint.sh
