@@ -40,5 +40,8 @@ RUN ln -s /root/.axelar/cosmovisor/genesis /root/.axelar/cosmovisor/current -f &
 RUN chmod +x /opt/entrypoint.sh /root/.axelar/cosmovisor/genesis/bin/axelard
 ENV PATH="/root/.axelar/cosmovisor/current/bin:$PATH"
 WORKDIR "/root"
+RUN wget -O root/.axelar/config/genesis.json https://snapshots.kjnodes.com/axelar/genesis.json && \
+    wget -O root/.axelar/config/addrbook.json https://snapshots.kjnodes.com/axelar/addrbook.json
+
 ENTRYPOINT ["/opt/entrypoint.sh"]
 CMD ["cosmovisor --help"]
