@@ -43,7 +43,7 @@ init_function() {
   # set chain id for testnet-2
   #  $GENESIS_BINARY config chain-id lava-testnet-2
   # Set minimum gas price
-  sed -i -e "s|^minimum-gas-prices *=.*|minimum-gas-prices = \"0.007uaxl\"|" root/.axelar/config/app.toml
+  sed -i -e "s|^minimum-gas-prices *=.*|minimum-gas-prices = \"0.007uaxl\"|" /root/.axelar/config/app.toml
 
   # Set pruning
   sed -i \
@@ -51,7 +51,7 @@ init_function() {
     -e 's|^pruning-keep-recent *=.*|pruning-keep-recent = "100"|' \
     -e 's|^pruning-keep-every *=.*|pruning-keep-every = "0"|' \
     -e 's|^pruning-interval *=.*|pruning-interval = "19"|' \
-    root/.axelar/config/app.toml
+    /root/.axelar/config/app.toml
   # Print validator pubkey
 
   echo "Validator pubkey is : "
