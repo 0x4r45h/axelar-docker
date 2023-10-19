@@ -1,6 +1,6 @@
 #!/bin/bash
 #GENESIS_BINARY="/root/.axelar/cosmovisor/genesis/bin/lavad --home /root/.axelar"
-GENESIS_BINARY="axelard --home /root/.axelar"
+GENESIS_BINARY="axelard"
 
 init_function() {
   if [ -z "$ACCOUNT_NAME" ]; then
@@ -65,7 +65,7 @@ main() {
     init_function
     ;;
   "start-node")
-    cosmovisor start --home=/root/.axelar --p2p.seeds $SEED_NODE --chain-id $CHAIN_ID
+    cosmovisor start --p2p.seeds $SEED_NODE
     ;;
   *)
     exec "$@"
