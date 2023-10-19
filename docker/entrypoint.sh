@@ -33,13 +33,14 @@ init_function() {
   fi
 
   # Backup genesis.json
-  mv /root/.axelar/config/genesis.json /root/.axelar/config/genesis.json.bak
+  mv /root/.axelar/config/genesis.json /root/.axelar/config/genesis.json.bak && \
   mv /root/.axelar/config/addrbook.json /root/.axelar/config/addrbook.json.bak
   # Run lavad init command
-  $GENESIS_BINARY init $MONIKER_NAME --chain-id $CHAIN_ID >/dev/null 2>&1
+#  $GENESIS_BINARY init $MONIKER_NAME --chain-id $CHAIN_ID >/dev/null 2>&1
+  $GENESIS_BINARY init $MONIKER_NAME --chain-id $CHAIN_ID
   # Replace genesis.json with backed up file
-  cp /root/.axelar/config/genesis.json.bak /root/.axelar/config/genesis.json
-  cp /root/.axelar/config/addrbook.json.bak /root/.axelar/config/addrbook.json
+  mv /root/.axelar/config/genesis.json.bak /root/.axelar/config/genesis.json && \
+  mv /root/.axelar/config/addrbook.json.bak /root/.axelar/config/addrbook.json
   # set chain id for testnet-2
   #  $GENESIS_BINARY config chain-id lava-testnet-2
   # Set minimum gas price
