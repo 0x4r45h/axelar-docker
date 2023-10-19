@@ -2,8 +2,12 @@
 GENESIS_BINARY="axelard"
 
 update_snapshot() {
-  curl -L https://snapshots.kjnodes.com/axelar-testnet/snapshot_latest.tar.lz4 | tar -Ilz4 -xf - -C /root/.axelar
-  [[ -f /root/.axelar/data/upgrade-info.json ]] && cp /root/.axelar/data/upgrade-info.json /root/.axelar/cosmovisor/genesis/upgrade-info.json
+  cp $HOME/.axelar/data/priv_validator_state.json $HOME/.axelar/priv_validator_state.json.backup
+  rm -rf $HOME/.axelar/data
+
+  curl -L $SNAPSHOT_ENDPOINT | tar -Ilz4 -xf - -C $HOME/.axelar
+  mv $HOME/.axelar/priv_validator_state.json.backup $HOME/.axelar/data/priv_validator_state.json
+
 }
 
 init_function() {
