@@ -58,7 +58,7 @@ init_function() {
   # Set pruning
   sed -i \
     -e 's|^pruning *=.*|pruning = "custom"|' \
-    -e 's|^pruning-keep-recent *=.*|pruning-keep-recent = "100"|' \
+    -e 's|^pruning-keep-recent *=.*|pruning-keep-recent = "50000"|' \
     -e 's|^pruning-keep-every *=.*|pruning-keep-every = "0"|' \
     -e 's|^pruning-interval *=.*|pruning-interval = "19"|' \
     $HOME/.axelar/config/app.toml
