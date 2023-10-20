@@ -7,11 +7,6 @@ services:
     restart: unless-stopped
     command:
       - "start-node"
-    ports:
-      - "${PORT_RPC}:26657"
-      - "${PORT_PEER}:26656"
-      - "${PORT_API}:1317"
-      - "${PORT_GRPC}:9090"
     logging:
       options:
         max-size: "12m"
