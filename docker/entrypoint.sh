@@ -58,8 +58,8 @@ init_function() {
   sed -i \
     -e 's|^pruning *=.*|pruning = "custom"|' \
     -e 's|^pruning-keep-recent *=.*|pruning-keep-recent = "55000"|' \
-    -e 's|^pruning-keep-every *=.*|pruning-keep-every = "0"|' \
-    -e 's|^pruning-interval *=.*|pruning-interval = "19"|' \
+    -e 's|^pruning-keep-every *=.*|pruning-keep-every = "500"|' \
+    -e 's|^pruning-interval *=.*|pruning-interval = "17"|' \
     $HOME/.axelar/config/app.toml
 
 # Set custom ports
