@@ -50,7 +50,6 @@ init_function() {
     cp -f /tmp/mainnet/addrbook.json /root/.axelar/config/addrbook.json
     else
     cp -f /tmp/testnet/genesis.json /root/.axelar/config/genesis.json
-#    cp -f /tmp/testnet/addrbook.json /root/.axelar/config/addrbook.json
     fi
   # Set minimum gas price
   sed -i -e "s|^minimum-gas-prices *=.*|minimum-gas-prices = \"0.007uaxl\"|" $HOME/.axelar/config/app.toml
@@ -58,7 +57,7 @@ init_function() {
   # Set pruning
   sed -i \
     -e 's|^pruning *=.*|pruning = "custom"|' \
-    -e 's|^pruning-keep-recent *=.*|pruning-keep-recent = "50000"|' \
+    -e 's|^pruning-keep-recent *=.*|pruning-keep-recent = "55000"|' \
     -e 's|^pruning-keep-every *=.*|pruning-keep-every = "0"|' \
     -e 's|^pruning-interval *=.*|pruning-interval = "19"|' \
     $HOME/.axelar/config/app.toml
