@@ -64,7 +64,11 @@ init_function() {
 
 # Set custom ports
 sed -i -e "s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://0.0.0.0:26657\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"0.0.0.0:6060\"%;" $HOME/.axelar/config/config.toml
+# set flags
 sed -i '/\[api\]/,/^ *enable =/ s/enable = false/enable = true/' $HOME/.axelar/config/app.toml
+sed -i '/\[grpc\]/,/^ *enable =/ s/enable = false/enable = true/' $HOME/.axelar/config/app.toml
+sed -i '/\[grpc-web\]/,/^ *enable =/ s/enable = false/enable = true/' $HOME/.axelar/config/app.toml
+sed -i '/\[rosetta\]/,/^ *enable =/ s/enable = true/enable = false/' $HOME/.axelar/config/app.toml
 
   # Print validator pubkey
 
